@@ -77,7 +77,7 @@ while(true){
     var inputAccount = prompt('아이디를 입력하세요!');
     // var inputAccount = 'kim1234';
 
-    // 회원 목록을 반보갛여 입력한 계정명과 일치하는 객체를 탐색
+    // 회원 목록을 반복하여 입력한 계정명과 일치하는 객체를 탐색
     var foundUser = null; //로그인 시도하는 회원의 정보객체
 
     for (var user of userList){

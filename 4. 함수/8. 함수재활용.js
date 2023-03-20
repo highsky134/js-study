@@ -2,6 +2,8 @@
 
 // 배열의 특정 데이터의 인덱스를 구하는 함수
 
+var NOT_FOUND = -1;
+
 function myIndexOf(arr, element){
 
     for(var i=0; i<arr.length; i++){
@@ -9,7 +11,7 @@ function myIndexOf(arr, element){
             return i;
         }
     }
-    return -1;
+    return NOT_FOUND;
 }
 
 function myIncludes(arr, element){

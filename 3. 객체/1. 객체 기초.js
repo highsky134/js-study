@@ -76,11 +76,12 @@ console.log(`==========================`);
 // key를 반복해서 추출해줌 // key의 개수만큼 반복함
 for(var k in dog){
     // console.log(k); 
-    console.log(dog[k]);
+    // console.log(dog[k]);
+    // console.log(dog.k);
 
     // k 는 키값이고 문자열로 나타내기 때문에 dog.k를 사용하면 undefined, dog[k]의 방식으로 추출할수 있음
 }
-
+console.log(`==========================`);
 //객체의 중첩구조
 //예시 : 게시판
 
