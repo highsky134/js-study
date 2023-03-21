@@ -192,7 +192,13 @@ console.log(mappedApples);
 
 const newUserHobby =
         userList.filter(user => user.address === '서울')
-                .map(user => user.hobbys[0]);
+                .map(user => ({
+                    firstHobby: user.hobbys[0],
+                    name: user.userName
+                }))
+                .forEach(info => {
+                    console.log(`${info.name}의 첫번째 취미는 ${info.firstHobby}입니다.`)
+                });
 
-console.log(newUserHobby);
+// console.log(newUserHobby);
 
