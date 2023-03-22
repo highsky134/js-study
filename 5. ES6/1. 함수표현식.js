@@ -74,3 +74,17 @@ const inBetween = (a, b) => {
 
 console.log( arr.filter(inBetween(3, 6)) );
 
+let 숙박비 = [20000, 30000, 50000, 60000, 50000];
+
+
+console.log(숙박비.filter( x => x <= 50000 ));
+
+function cheap(zzz){
+    return bill => bill <= zzz;
+}
+
+console.log(숙박비.filter(cheap(zzz)));
+
+// zzz = 50000 / zzz보다 싼 값의 요소를 찾아라 
+
+
