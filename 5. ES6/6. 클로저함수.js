@@ -46,7 +46,7 @@ console.log(increase()); // 반복
 console.log(increase()); // 반복, 결과값 1
 */
 
-/*
+
 // 클로저 - 함수를 통해서 제어하게 만듦
 const increaseClosure = () => {
     let count = 0;
@@ -58,7 +58,7 @@ const increser = increaseClosure();
 console.log(increser());
 console.log(increser());
 console.log(increser());
-*/
+
 
 // 즉시 실행 함수 : 정의와 동시에 호출 (1회용함수)
 const result = (function(n1, n2) {

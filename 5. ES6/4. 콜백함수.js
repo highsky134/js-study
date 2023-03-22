@@ -80,3 +80,36 @@ shwoMessage('메롱메롱', function(m) {
 
 
 
+//0323
+function cbTest(callback, x){
+    let plus = 0;
+    plus = plus + 1;
+    console.log(plus);
+
+    callback(function insa(x){
+        console.log(x);
+    });
+}
+
+// function test(x) {
+//     console.log(x);
+// }
+
+// cbTest((x)=>console.log(x),10);
+cbTest(function test(x){},10);
+
+
+let fruit = 'apple';	// Global Variable
+
+function callbackFunc(callback) {
+    let vegetable = 'tomato';	// Local Variable
+    callback(vegetable);
+}
+
+function eat(vegetable) {
+    console.log(`fruit: ${fruit} / vegetable: ${vegetable}`);
+}
+
+callbackFunc(eat);
+
+
