@@ -59,3 +59,18 @@ const cat = {
 
 dog.bark();
 cat.bark(); // 불가능
+
+
+
+
+const inBetween = (a, b) => {
+    return function(x) {
+      return x >= a && x <= b;
+    };
+  }
+  
+  let arr = [1, 2, 3, 4, 5, 6, 7];
+//   alert( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
+
+console.log( arr.filter(inBetween(3, 6)) );
+

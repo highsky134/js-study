@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fr">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+        <li class="fr">복숭아</li>
+    </ul>
+
+    <script>
+        //const $grape = document.querySelector('.fr');  // 같은 클래스가 여러개 있어도 하나만 반환
+        const $grape = document.querySelector('.grape');
+        // const $grape = document.querySelector('#fruits li:nth-child(3)');
+        // const $grape = document.querySelector('.banana + li');
+        // const $grape = document.querySelector('#fruits > li');
+
+        $grape.textContent = '맛있는 포도';
+
+        // 선택자에 해당하는 모든 요소를 취득 // 유사 배열을 진짜 배열로 
+        const elements = [...document.querySelectorAll('.fr')]; //querySelectAll 쓸땐 
+        
+        console.log(elements);
+        
+        // elements.pop(); // 유사 배열 pop 등 배열 메서드 안먹힘
+        console.log(elements);
+        elements[0].style.background = 'red';
+
+        
+        for ( const $li of elements) {
+            $li.style.border = '1px dashed skyblue';
+        }
+
+        elements.forEach($li => {
+            $li.style.color = 'blue';
+        });
+
+        const [a, b, c, d] = [...document.querySelectorAll('li')];
+
+        d.textContent = '어피치';
+        
+    </script>
+</body>
+</html>
