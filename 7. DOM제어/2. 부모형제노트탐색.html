@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <ul id="fruits">
+            <li class="fr apple">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+        </ul>
+    </div>
+    <div class="box"></div>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        const $wrap = $fruits.parentElement
+        console.log($wrap);
+
+        const [$apple, $banana, $grape] = [...$wrap.firstElementChild.children];
+
+        // const sameFlag = $banana.nextElementSibling === $grape; // 다음형제 true
+        const sameFlag = $banana.previousElementSibling === $apple; // 이전형제 true
+        console.log(sameFlag);
+
+        //$apple.parentElement.parentElement; // === $wrap; 부모의 부모
+
+        // closest('CSS선택자'); 가장 가까운 태그를 찾음
+        const foundElem = $apple.closest('.wrap'); // $apple에서 가장 가까운 class=wrap을 찾아와!
+        console.log(`찾은요소`, foundElem);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #greet span{
+            color:red;
+        }
+        #greet::before {
+            /* content: 'what\'s up!'; */
+        }
+
+    </style>
+</head>
+<body>
+    <div id="greet">
+        Hello <span>World!</span>
+    </div>
+    <!-- 블록요소 안쪽의 텍스트는 인라인 요소로 감싸는게 관리 측면에서 좋다 -->
+    <script>
+        const $greet = document.getElementById('greet');
+        console.log($greet.textContent);
+
+        // $greet.textContent = '안녕하세요';
+        $greet.innerHTML = '<span>안녕</span>하세요';
+
+        // 모든 자식태그를 삭제 - 전체 삭제 기능으로 사용가능
+        // $greet.innerHTML = '';
+
+        // 태그를 추가 +=
+        $greet.innerHTML += ' 반갑습니다';
+
+    </script>
+</body>
+</html>

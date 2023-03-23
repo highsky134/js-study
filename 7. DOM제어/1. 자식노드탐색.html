@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fr apple">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+    </ul>
+
+    <div class="box"></div>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        // $fruits.childNodes는 코드 사이의 공백이 배열의 첫 요소가 됨 그래서 안씀 children사용
+        console.log($fruits.children);
+        
+        const $children = [...$fruits.children];
+        
+        // console.log($children);
+
+        // $children.forEach(($li)=>{$li.style.color = 'yellow'});
+
+        // const $first = $children[0];
+        // console.log($first);
+        // const $last = $children[$children.length-1];
+
+        // $fruist.firstChild는 코드사이의 공백이 차지 함 고로 firstElementChild, lastElementChild 사용
+        const $first = $fruits.firstElementChild;
+        const $last = $fruits.lastElementChild;
+
+        $first.style.fontSize = '2em';
+
+        // 이것도 텍스트(코드 사이의 공백)를 자식으로 판단하기때문에 사용x
+        const $box = document.querySelector('.box');
+        // console.log($box.hasChildNodes());
+
+        // 자식 요소의 유무 확인 => 논리 변환을 사용하여 children 길이의 값으로 판단
+        console.log(!!$box.children.length);
+
+        console.log(hasChildren($box));
+
+        function hasChildren($target){
+            return !!$target.children.length;
+        }
+    </script>
+</body>
+</html>
