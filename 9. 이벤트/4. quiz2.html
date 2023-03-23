@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .rotate {
+            display: inline-block;
+            transform: rotate(90deg);
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lunches" class="menu">
+        <span class="title"><b>▶</b>추천 메뉴(Click Me!)</span>
+        <ul>
+            <li>돈까스</li>
+            <li>군만두</li>
+            <li>볶음밥</li>
+            <li>마파두부</li>
+        </ul>
+    </div>
+
+    <script>
+        const $title = document.querySelector('.title');
+        
+        $title.onclick = () => {
+            // const $ul = document.querySelector('#lunches > ul');
+            // $ul.classList.toggle('hide');
+            document.querySelector('b').classList.toggle('rotate');
+            [...document.querySelectorAll('#lunches ul li')].forEach($li => {
+                $li.classList.toggle('hide');
+            });
+            
+            
+            
+        }
+
+    </script>
+</body>
+</html>
