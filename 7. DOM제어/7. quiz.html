@@ -29,9 +29,10 @@
         
         //### 여기부터는 innerHTML 사용 금지.
 
-        //3. id="list"인 요소의 마지막 위치에 새요소 "<li>list_6</li>"를 추가하세요.
+        //3. id="list"인 요소의 마지막 위치에 새요소 "<li id="banana">list_6</li>"를 추가하세요.
         const $newLi_6 = document.createElement('li');
         $newLi_6.textContent = 'list_6';
+        $newLi_6.setAttribute('id', 'banana');
 
         $list.appendChild($newLi_6);
     
