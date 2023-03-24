@@ -16,7 +16,7 @@
             border: 2px solid #000;
         }
         a {
-            margin: 1px 0 1px 50px;
+            margin: 0 0 0 50px;
             display: block;
             background: #ccc;
             width: 150px;
@@ -25,6 +25,10 @@
             text-decoration: none;
             font-size: 30px;
             line-height: 50px;
+        }
+        a:hover {
+            color: #fff;
+            background: #000;
         }
     </style>
 </head>
@@ -43,12 +47,19 @@
 
     <script>
         const $btn = document.querySelector('.btn');
+        
         $btn.onmouseover = () => {
             document.getElementById('drop-content').removeAttribute('style');
         };
-        $btn.onmouseout = () => {
+
+        /*
+            mouseover, mouseout     : 버블링 있음
+            mouseenter, mouseleave  : 버블링 없음
+        */
+
+        document.querySelector('.dropdown').onmouseleave = () => {
             document.getElementById('drop-content').style = 'display: none';
-        }
+        };
 
     </script>
 </body>

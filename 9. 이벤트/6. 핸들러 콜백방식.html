@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭점요</button>
+
+    <script>
+        // 핸들러
+        function hello() {
+            alert('안녕');
+        }
+
+        const $btn = document.getElementById('btn');
+
+        // $btn.onclick = hello;
+
+        // $btn.onclick = function() {
+        //     $btn.style.background = 'aqua';
+        // }
+
+        $btn.addEventListener('click', hello);
+        $btn.addEventListener('click', () => $btn.style.background='aqua');
+
+        // 핸들러 제거 : 익명함수 제거 못함
+        $btn.removeEventListener('click',hello);
+    </script>
+</body>
+</html>

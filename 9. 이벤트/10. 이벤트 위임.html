@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            display: flex;
+            list-style: none;
+            padding: 20px;
+            border: 2px solid red;
+        }
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+            background: orange;
+            margin-right: 10px;
+        }
+        .active {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">Apple</em></div>
+
+    <label>
+        # 새로운 과일 추가하기: 
+        <input type="text" class="text-box">
+        <button id="add">추가</button>
+    </label>
+
+    <script>
+        // li태그들에게 일일히 이벤트를 부여하면
+        // 새롭게 추가되는 li들도 또 이벤트를 부여해줘야 하는 번거로움이 생김
+
+        // 부모태그인 ul에 범용성있는 이벤트를 부여해서 li들이 버블링을 통해 사용하도록 설정
+
+        const removeActive = () => {
+            [...$fruits.children].forEach($li => {
+                if($li.classList.contains('active')){
+                    $li.classList.remove('active');
+                    return;
+                }
+            });
+        }
+
+        const $fruits = document.querySelector('#fruits');
+        $fruits.onclick = e => {
+            // 이벤트 타겟 제한
+            console.log(e.target.matches('li'));
+
+            if(!e.target.matches('#fruits li')){
+                return;
+            }
+            // console.log('클릭이벤트 발생!');
+            // console.log(e.target);
+            
+            removeActive();
+            // 1. 기존에 active가 붙은 태그에서 active제거
+            // 2. 클릭 대상에 클랙스 active를 부여하고 
+            // 3. 그 텍스트를 em.msg태그에 복사한다.
+            e.target.classList.add('active');
+            // e.stopPropagation();
+
+            const $msg = document.querySelector('.msg');
+            $msg.textContent = e.target.textContent;
+            
+        }
+
+        const $add = document.getElementById('add');
+        const $newFruit = document.querySelector('.text-box');
+
+        // $add.onclick = e => addFruit();
+        $add.addEventListener('click',addFruit)
+        
+        $newFruit.addEventListener('keyup', e => {
+            if(e.key === 'Enter') addFruit();
+        });
+
+        const addFruit = () => {
+            if($newFruit) return;
+            const $newLi = document.createElement('li');
+                
+            $newLi.textContent = $newFruit.value;
+            // console.log(typeof $newFruit.value);
+            
+            $newLi.setAttribute('id', $newFruit.value.toLowerCase());
+            $fruits.appendChild($newLi);
+            $newFruit.value = '';
+        }
+    </script>
+
+</body>
+</html>
